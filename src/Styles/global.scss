@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #d7c599;
+}
+
+strong {
+    font-family: "Inter", sans-serif;
+}
+
+img {
+    width: 300px;
+    height: auto;
+    border-radius: 5px;
+}
+
+header {
+    padding: 20px 20px;
+    background-color: #750908;
+    strong {
+        color: #dd7b05;
+    }
+}
+
+section {
+    background-color: #dd7b05;
+    margin: 0vh 5vw;
+    padding: 5vw;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    .recomendations {
+        border-bottom: #000 solid 1px;
+        grid-column: 2 / 5;
+    }
+    .toBuy {
+        grid-column: 1/1;
+        form {
+            select, input, textarea {
+                margin: 5px 0px;
+                width: 100%;
+                border: none;
+                border-radius: 5px;
+            }
+        }
+        .pizzas {
+            width: 17vw;
+            img {
+                width: 100%;
+            }
+        }
+    }
+    h1 {
+        text-align: center;
+        display: block;
+    }
+    p {
+        display: block;
+    }
+    button {
+        border: none;
+        border-radius: 5px;
+        background-color: #750908;
+        color: #d7c599;
+    }
+    .pizzas {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .pizza {
+            margin: 15px;
+            width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            h2 {
+                margin: 0;
+                padding: 0;
+                display: block;
+            }
+            h4 {
+                margin: 0;
+                padding: 0;
+                margin-top: 5px;
+                margin-bottom: 7px;
+                display: block;
+            }
+        }
+        .pizza:hover {
+            opacity: 0.7;
+        }
+    }
+}
+
+footer {
+    padding: 20px 20px;
+    background-color: #750908;
+    strong {
+        color: #dd7b05;
+    }
+}
