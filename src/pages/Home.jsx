@@ -98,9 +98,10 @@ export default function Home() {
                 preco: preco,
                 tipo: tipo
             }]
+            console.log({ checkTipo });
             if (checkTipo != 0) {
                 if (tipo === "Principal") {
-                    setCartItems(data);
+                    return;
                 } else {
                     setCartItems(data);
                 }
