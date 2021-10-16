@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+
+import { Container, Row, Col } from 'react-bootstrap';
 
 import Header from '../components/header';
 import Footer from '../components/footer';
@@ -36,7 +37,10 @@ const pizzas = [
         nome: "Calabresa com queijo",
         preco: "R$26,99",
         tipo: "Principal",
-    },
+    }
+];
+
+const acompanhamentos = [
     {
         id: 5,
         img: "https://cdn.pixabay.com/photo/2013/06/07/18/09/salad-122722__340.jpg",
@@ -77,7 +81,7 @@ const pizzas = [
         preco: "R$16,99",
         tipo: "Acompanhamento",
     }
-];
+]
 
 export default function Home() {
     const [cartItems, setCartItems] = useState([])
@@ -119,61 +123,91 @@ export default function Home() {
     return (
         <>
             <Header />
+
+
             <section>
-                <div className="toBuy">
-                    <h1>Selecionados</h1>
-                    <form>
-                        <select name="select">
-                            <option value="1">Forma de pagamento 1</option>
-                            <option value="2">Forma de pagamento 2</option>
-                            <option value="3">Forma de pagamento 3</option>
-                        </select>
-                        <input type="text" placeholder="Nome" />
-                        <input type="text" placeholder="Email" />
-                        <input type="text" placeholder="Telefone" />
-                        <textarea rows="10" placeholder="Seu comentário"></textarea>
-                        <p>Total: R$40,00</p>
-                        <button type="submit">Concluir pedido</button>
-                    </form>
-                    <div className="pizzas">
-                        {cartItems.map(item => (
-                            <div className="pizza"
-                                key={item.id}
-                                onClick={() => toBuy(item.id)}>
-                                <img src={item.img}
-                                    alt={item.alt}
-                                />
-                                <h2>{item.nome}</h2>
-                                <h4>{item.preco}</h4>
-                                <strong>{item.tipo}</strong>
+                <Container>
+                    <Row>
+                        <Col sm={12} md={12} lg={12} xl={6} xxl={4}>
+                            <h1>Pizzas</h1>
+                            <div className="pizzas">
+                                {pizzas.map(pizza => (
+                                    <div className="pizza"
+                                        key={pizza.id}
+                                        onClick={() => toBuy(
+                                            pizza.id,
+                                            pizza.img,
+                                            pizza.alt,
+                                            pizza.nome,
+                                            pizza.preco,
+                                            pizza.tipo
+                                        )}>
+                                        <img src={pizza.img}
+                                            alt={pizza.alt}
+                                        />
+                                        <h2>{pizza.nome}</h2>
+                                        <h4>{pizza.preco}</h4>
+                                        <strong>{pizza.tipo}</strong>
+                                    </div>
+                                ))}
                             </div>
-                        ))}
-                    </div>
-                </div>
-                <div className="recomendations">
-                    <h1>Pizzas e acompanhamentos</h1>
-                    <div className="pizzas">
-                        {pizzas.map(pizza => (
-                            <div className="pizza"
-                                key={pizza.id}
-                                onClick={() => toBuy(
-                                    pizza.id,
-                                    pizza.img,
-                                    pizza.alt,
-                                    pizza.nome,
-                                    pizza.preco,
-                                    pizza.tipo
-                                )}>
-                                <img src={pizza.img}
-                                    alt={pizza.alt}
-                                />
-                                <h2>{pizza.nome}</h2>
-                                <h4>{pizza.preco}</h4>
-                                <strong>{pizza.tipo}</strong>
+                        </Col>
+                        <Col sm={12} md={12} lg={{ span: 12, offset: 0 }} xl={{ span: 6, offset: 0 }} xxl={{ span: 4, offset: 0 }}>
+                            <h1>Acompanhamentos</h1>
+                            <div className="pizzas">
+                                {acompanhamentos.map(acompanhamento => (
+                                    <div className="pizza"
+                                        key={acompanhamento.id}
+                                        onClick={() => toBuy(
+                                            acompanhamento.id,
+                                            acompanhamento.img,
+                                            acompanhamento.alt,
+                                            acompanhamento.nome,
+                                            acompanhamento.preco,
+                                            acompanhamento.tipo
+                                        )}>
+                                        <img src={acompanhamento.img}
+                                            alt={acompanhamento.alt}
+                                        />
+                                        <h2>{acompanhamento.nome}</h2>
+                                        <h4>{acompanhamento.preco}</h4>
+                                        <strong>{acompanhamento.tipo}</strong>
+                                    </div>
+                                ))}
                             </div>
-                        ))}
-                    </div>
-                </div>
+                        </Col>
+                        <Col sm={12} md={12} lg={12} xl={12} xxl={4}>
+                            <h1>Selecionados</h1>
+                            <div className="pizzas">
+                                {cartItems.map(item => (
+                                    <div className="pizza"
+                                        key={item.id}
+                                        onClick={() => toBuy(item.id)}>
+                                        <img src={item.img}
+                                            alt={item.alt}
+                                        />
+                                        <h2>{item.nome}</h2>
+                                        <h4>{item.preco}</h4>
+                                        <strong>{item.tipo}</strong>
+                                    </div>
+                                ))}
+                            </div>
+                            <form>
+                                <select name="select">
+                                    <option value="1">Forma de pagamento 1</option>
+                                    <option value="2">Forma de pagamento 2</option>
+                                    <option value="3">Forma de pagamento 3</option>
+                                </select>
+                                <input type="text" placeholder="Nome" />
+                                <input type="text" placeholder="Email" />
+                                <input type="text" placeholder="Telefone" />
+                                <textarea rows="10" placeholder="Seu comentário"></textarea>
+                                <p>Total: R$40,00</p>
+                                <button type="submit">Concluir pedido</button>
+                            </form>
+                        </Col>
+                    </Row>
+                </Container>
             </section>
             <Footer />
         </>

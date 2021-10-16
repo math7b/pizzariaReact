@@ -9,7 +9,7 @@ strong {
 }
 
 img {
-    width: 300px;
+    width: 230px;
     height: auto;
     border-radius: 5px;
 }
@@ -26,21 +26,17 @@ section {
     background-color: #dd7b05;
     margin: 0vh 5vw;
     padding: 5vw;
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
     .recomendations {
         border-bottom: #000 solid 1px;
-        grid-column: 2 / 5;
     }
-    .toBuy {
-        grid-column: 1/1;
-        form {
-            select, input, textarea {
-                margin: 5px 0px;
-                width: 100%;
-                border: none;
-                border-radius: 5px;
-            }
+    form {
+        select,
+        input,
+        textarea {
+            margin: 5px 0px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
         }
         .pizzas {
             width: 17vw;
@@ -67,8 +63,9 @@ section {
         flex-wrap: wrap;
         justify-content: center;
         .pizza {
-            margin: 15px;
-            width: 300px;
+            margin: 5px;
+            margin-bottom: 20px;
+            width: 230px;
             overflow: hidden;
             text-overflow: ellipsis;
             h2 {
